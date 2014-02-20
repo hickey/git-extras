@@ -8,13 +8,29 @@ contains() {
 }
 
 
+current_branch() {
+  echo  $(git branch | sed -n '/\* /s///p')
+}
+
+
+branch_exist() {
+  git branch | grep $1 >/dev/null
+  return $?
+}
+
+
+repo_dirty() {
+  expr $(git status --porcelain 2>/dev/null| egrep "^(M| M)" | wc -l)
+}
+
+
 ##
 # 
 list_branch_type() {
   branch_type=$1
   echo "Current $branch_type branches:"
   br_prefix="${branch_type}/"
-  for branch in `git branch | sed 's/\*//' | sed 's/ *//' | egrep "^${br_prefix}" `; do
+  for branch in $(git branch | sed 's/\*//' | sed 's/ *//' | egrep "^${br_prefix}"); do
     branch_name=${branch#$br_prefix}
     if test -n "$branch_name"; then
       echo "    $branch_name"
@@ -51,7 +67,7 @@ delete_dev_branch() {
   branch="$branch_type/$branch_name"
   
   # Check to see if currently on feature branch. 
-  if test `git branch | sed -n '/\* /s///p'` = $branch; then
+  if [ $(current_branch) = $branch ]; then
     git checkout master
   fi
   
@@ -77,12 +93,12 @@ switch_dev_branch() {
   branch="$branch_type/$branch_name"
 
   # check to see if branch already exists 
-  if `git branch | grep ${branch}`; then
+  if $(branch_exist $branch); then
     # just switch to it
     git checkout $branch
   else
     # create the branch
-    git checkout -b $branch &> /dev/null
+    git checkout -b $branch master
   fi
 }
 

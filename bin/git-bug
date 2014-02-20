@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source git_bug_feature_refactor
+source git_extras_common
 
 
 if test -z $1; then
