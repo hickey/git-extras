@@ -14,11 +14,8 @@ current_branch() {
 
 
 branch_exist() {
-  if `git branch | grep $1`; then
-    return 0
-  else
-    return 1
-  fi
+  git branch | grep $1 >/dev/null
+  return $?
 }
 
 
