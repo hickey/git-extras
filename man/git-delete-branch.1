@@ -1,7 +1,7 @@
 .\" generated with Ronn/v0.7.3
-.\" https://github.com/rtomayko/ronn/tree/0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "GIT\-DELETE\-BRANCH" "1" "July 2012" "" ""
+.TH "GIT\-DELETE\-BRANCH" "1" "February 2014" "" "Git Extras"
 .
 .SH "NAME"
 \fBgit\-delete\-branch\fR \- Delete branches
@@ -10,7 +10,7 @@
 \fBgit\-delete\-branch\fR <branchname>
 .
 .SH "DESCRIPTION"
-Deletes local and remote branch named <branchname>\.
+Deletes local and remote branches named <branchname>\. All remote repositories are searched for <branchname> and deleted if found\. Note that local deletion fails if the branch is checked out\.
 .
 .SH "OPTIONS"
 <branchname>
@@ -30,7 +30,7 @@ $ git delete\-branch integration
 Written by Tj Holowaychuk <\fItj@vision\-media\.ca\fR>
 .
 .SH "REPORTING BUGS"
-<\fIhttp://github\.com/visionmedia/git\-extras/issues\fR>
+<\fIhttps://github\.com/visionmedia/git\-extras/issues\fR>
 .
 .SH "SEE ALSO"
-<\fIhttp://github\.com/visionmedia/git\-extras\fR>
+<\fIhttps://github\.com/visionmedia/git\-extras\fR>

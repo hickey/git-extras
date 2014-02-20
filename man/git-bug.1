@@ -1,22 +1,31 @@
 .\" generated with Ronn/v0.7.3
-.\" https://github.com/rtomayko/ronn/tree/0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
 .
-.TH "GIT\-BUG" "1" "July 2012" "" ""
+.TH "GIT\-BUG" "1" "February 2014" "" "Git Extras"
 .
 .SH "NAME"
 \fBgit\-bug\fR \- Create bug branch
 .
 .SH "SYNOPSIS"
-\fBgit\-bug\fR [finish] <name>
+\fBgit\-bug\fR [<name>] \fBgit\-bug\fR [finish|fin|end|complete] <name> \fBgit\-bug\fR [delete|del|remove|rm|clear] <name>
 .
 .SH "DESCRIPTION"
-Create the given bug branch
+Manage bug branch creation, deletion or merging back into integration branch\. By default the master branch is considered the integration branch\.
+.
+.P
+If the bug branch name is not given, then a list of bug branches will be displayed\.
 .
 .SH "OPTIONS"
-<finish>
+<finish, fin, end, complete>
 .
 .P
 Merge and delete the bug branch\.
+.
+.P
+<delete, del, remove, rm, clear>
+.
+.P
+Delete the bug branch from local and remote repositories\.
 .
 .P
 <name>
@@ -41,7 +50,7 @@ $ git bug finish bug\-123456
 Written by Jesús Espino <\fIjespinog@gmail\.com\fR>
 .
 .SH "REPORTING BUGS"
-<\fIhttp://github\.com/visionmedia/git\-extras/issues\fR>
+<\fIhttps://github\.com/visionmedia/git\-extras/issues\fR>
 .
 .SH "SEE ALSO"
-<\fIhttp://github\.com/visionmedia/git\-extras\fR>
+<\fIhttps://github\.com/visionmedia/git\-extras\fR>
