@@ -94,7 +94,7 @@ $ git extras update
 
 Sets up the `gh-pages` branch.  (See [GitHub Pages](http://pages.github.com/) documentation.)
 
-## git-[feature|refactor|bug] [finish] &lt;name&gt;
+## git-[feature|refactor|bug] [finish] [delete] &lt;name&gt;
 
 Create the given feature, refactor, or bug branch `name`:
 
@@ -115,6 +115,16 @@ When finished, we can `feature finish` to merge it into the current branch:
 $ git checkout master
 $ git feature finish dependencies
 ```
+
+There are also a number of aliases for the term finish. You are welcome to use `fin`, `end` or `complete`. 
+
+If you no longer need the branch you can delete the specific development branch by using `feature delete`. If you are currently on the branch that is being deleted, you will be placed on the master branch. 
+
+```bash
+$ git feature delete dependencies
+```
+
+Just like finish, there a several aliases that can be used in place of delete. They are `del`, `remove`, `rm` and `clear`. 
 
 All of this works with `feature`, `bug`, or `refactor`.
 
