@@ -118,6 +118,14 @@ $ git feature finish dependencies
 
 All of this works with `feature`, `bug`, or `refactor`.
 
+## git-refresh
+
+Update the current branch with any commits from the integration branch (usually master). 
+
+```bash
+$ git refresh
+```
+
 ## git-contrib &lt;author&gt;
 
 Output `author`'s contributions to a project:

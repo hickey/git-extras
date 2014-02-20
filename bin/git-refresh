@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# at this point, this is just a simple rebase against the integration branch
+git rebase master

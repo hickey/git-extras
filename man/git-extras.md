@@ -42,6 +42,7 @@ git-extras(1) -- Awesome GIT utilities
    - **git-info(1)** Returns information on current repository
    - **git-local-commits(1)** List local commits
    - **git-refactor(1)** Create refactor branch
+   - **git-refresh(1)** Update current branch from integration branch
    - **git-release(1)** Commit, tag and push changes to the repository
    - **git-rename-tag(1)** Rename a tag
    - **git-repl(1)** git read-eval-print-loop
