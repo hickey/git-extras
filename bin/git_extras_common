@@ -9,7 +9,7 @@ contains() {
 
 
 current_branch() {
-  echo  `git branch | sed -n '/\* /s///p'`
+  echo  $(git branch | sed -n '/\* /s///p')
 }
 
 
@@ -19,6 +19,9 @@ branch_exist() {
 }
 
 
+repo_dirty() {
+  expr $(git status --porcelain 2>/dev/null| egrep "^(M| M)" | wc -l)
+}
 
 
 ##
@@ -27,7 +30,7 @@ list_branch_type() {
   branch_type=$1
   echo "Current $branch_type branches:"
   br_prefix="${branch_type}/"
-  for branch in `git branch | sed 's/\*//' | sed 's/ *//' | egrep "^${br_prefix}" `; do
+  for branch in $(git branch | sed 's/\*//' | sed 's/ *//' | egrep "^${br_prefix}"); do
     branch_name=${branch#$br_prefix}
     if test -n "$branch_name"; then
       echo "    $branch_name"
@@ -95,7 +98,7 @@ switch_dev_branch() {
     git checkout $branch
   else
     # create the branch
-    git checkout -b $branch &> /dev/null
+    git checkout -b $branch master #&> /dev/null
   fi
 }
 
