@@ -8,6 +8,22 @@ contains() {
 }
 
 
+current_branch() {
+  echo  `git branch | sed -n '/\* /s///p'`
+}
+
+
+branch_exist() {
+  if `git branch | grep $1`; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+
+
+
 ##
 # 
 list_branch_type() {
@@ -51,7 +67,7 @@ delete_dev_branch() {
   branch="$branch_type/$branch_name"
   
   # Check to see if currently on feature branch. 
-  if test `git branch | sed -n '/\* /s///p'` = $branch; then
+  if test current_branch = $branch; then
     git checkout master
   fi
   
@@ -77,7 +93,7 @@ switch_dev_branch() {
   branch="$branch_type/$branch_name"
 
   # check to see if branch already exists 
-  if `git branch | grep ${branch}`; then
+  if branch_exist $branch; then
     # just switch to it
     git checkout $branch
   else
