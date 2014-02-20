@@ -67,7 +67,7 @@ delete_dev_branch() {
   branch="$branch_type/$branch_name"
   
   # Check to see if currently on feature branch. 
-  if test current_branch = $branch; then
+  if [ $(current_branch) = $branch ]; then
     git checkout master
   fi
   
@@ -93,12 +93,12 @@ switch_dev_branch() {
   branch="$branch_type/$branch_name"
 
   # check to see if branch already exists 
-  if branch_exist $branch; then
+  if $(branch_exist $branch); then
     # just switch to it
     git checkout $branch
   else
     # create the branch
-    git checkout -b $branch master #&> /dev/null
+    git checkout -b $branch master
   fi
 }
 
