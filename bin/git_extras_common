@@ -57,6 +57,9 @@ finish_feature_branch() {
 finish_refactor_branch() {
   finish_dev_branch 'refactor' $1
 }
+finish_hotfix_branch() {
+  finish_dev_branch 'hotfix' $1
+}
 
 
 delete_dev_branch() {
@@ -84,7 +87,9 @@ delete_feature_branch() {
 delete_refactor_branch() {
   delete_dev_branch 'refactor' $1
 }
-
+delete_hotfix_branch() {
+  delete_dev_branch 'hotfix' $1
+}
 
 switch_dev_branch() {
   branch_type=$1
@@ -110,4 +115,7 @@ switch_feature_branch() {
 }
 switch_refactor_branch() {
   switch_dev_branch 'refactor' $1
+}
+switch_hotfix_branch() {
+  switch_dev_branch 'hotfix' $1
 }

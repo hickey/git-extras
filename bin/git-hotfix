@@ -1,0 +1,18 @@
+#!/bin/sh
+
+source git_extras_common
+
+
+if test -z $1; then
+  # no feature specified, list the features
+  list_branch_type hotfix
+  
+elif contains 'finish fin end complete' $1; then
+  finish_hotfix_branch $2
+
+elif contains 'delete del remove rm clear' $1; then
+  delete_hotfix_branch $2
+  
+else
+  switch_hotfix_branch $1
+fi
