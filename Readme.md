@@ -63,6 +63,7 @@ $ brew install git-extras
  - `git feature`
  - `git refactor`
  - `git bug`
+ - `git hotfix`
  - `git promote`
  - `git local-commits`
  - `git archive-file`
@@ -96,7 +97,7 @@ Sets up the `gh-pages` branch.  (See [GitHub Pages](http://pages.github.com/) do
 
 ## git-[feature|refactor|bug] [finish] [delete] &lt;name&gt;
 
-Create the given feature, refactor, or bug branch `name`:
+Create the given feature, refactor, bug or hotfix branch `name`:
 
 ```bash
 $ git feature dependencies
@@ -126,7 +127,7 @@ $ git feature delete dependencies
 
 Just like finish, there a several aliases that can be used in place of delete. They are `del`, `remove`, `rm` and `clear`. 
 
-All of this works with `feature`, `bug`, or `refactor`.
+All of this works with `feature`, `bug`, `refactor`, or `hotfix`.
 
 ## git-refresh
 
