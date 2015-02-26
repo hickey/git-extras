@@ -103,7 +103,7 @@ switch_dev_branch() {
     git checkout $branch
   else
     # create the branch
-    git checkout -b $branch master
+    git checkout -b $branch HEAD
   fi
 }
 
